@@ -30,11 +30,11 @@ public class Torta {
         this.isToasted = isToasted;
 
         //set base price based on size
-        if (size.equalsIgnoreCase("chico")) {
+        if (size.equalsIgnoreCase("Chico")) {
             basePrice = 5.50;
-        } else if (size.equalsIgnoreCase("mediano")) {
+        } else if (size.equalsIgnoreCase("Mediano")) {
             basePrice = 7.00;
-        } else if (size.equalsIgnoreCase("grande")) {
+        } else if (size.equalsIgnoreCase("Grande")) {
             basePrice = 8.50;
         }
         totalPrice = basePrice;
@@ -43,22 +43,22 @@ public class Torta {
     //methods====================================================================================
     //addProtein method that adds meat(s), what is the price based on size and whether it's extra?
     public void addProtein(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "protein", isExtra);
+        Toppings topping = new Toppings(name, "Protein", isExtra);
         proteins.add(topping);
 
-        if (size.equalsIgnoreCase("chico")) {
+        if (size.equalsIgnoreCase("Chico")) {
             if (isExtra) {
                 totalPrice = totalPrice + 0.50;
             } else {
                 totalPrice = totalPrice + 1.00;
             }
-        } else if (size.equalsIgnoreCase("mediano")) {
+        } else if (size.equalsIgnoreCase("Mediano")) {
             if (isExtra) {
                 totalPrice = totalPrice + 1.00;
             } else {
                 totalPrice = totalPrice + 2.00;
             }
-        } else if (size.equalsIgnoreCase("grande")) {
+        } else if (size.equalsIgnoreCase("Grande")) {
             if (isExtra) {
                 totalPrice = totalPrice + 1.50;
             } else {
@@ -69,22 +69,22 @@ public class Torta {
 
     //addCheese method that adds cheese(s) and price depending on size and whether it's extra
     public void addCheese(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "cheese", isExtra);
+        Toppings topping = new Toppings(name, "Cheese", isExtra);
         cheeses.add(topping);
 
-        if (size.equalsIgnoreCase("chico")) {
+        if (size.equalsIgnoreCase("Chico")) {
             if (isExtra) {
                 totalPrice = totalPrice + 0.30;
             } else {
                 totalPrice = totalPrice + 0.75;
             }
-        } else if (size.equalsIgnoreCase("mediano")) {
+        } else if (size.equalsIgnoreCase("Mediano")) {
             if (isExtra) {
                 totalPrice = totalPrice + 0.60;
             } else {
                 totalPrice = totalPrice + 1.50;
             }
-        } else if (size.equalsIgnoreCase("grande")) {
+        } else if (size.equalsIgnoreCase("Grande")) {
             if (isExtra) {
                 totalPrice = totalPrice + 0.90;
             } else {
@@ -95,13 +95,13 @@ public class Torta {
 
     //addVeggies method that adds veggie(s) at no charge
     public void addVeggie(String name) {
-        Toppings topping = new Toppings(name, "veggie", false);
+        Toppings topping = new Toppings(name, "Veggie", false);
         veggies.add(topping);
     }
 
     //addSauce method that adds sauce(s) at no charge
     public void addSauce(String name) {
-        Toppings topping = new Toppings(name, "sauce", false);
+        Toppings topping = new Toppings(name, "Sauce", false);
         sauces.add(topping);
     }
 

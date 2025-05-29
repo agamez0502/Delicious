@@ -17,7 +17,7 @@ public class Toppings {
     //methods====================================================================================
     @Override
     public String toString() {
-        if (isExtra && (type.equalsIgnoreCase("protein") || type.equalsIgnoreCase("cheese"))) {
+        if (isExtra && (type.equalsIgnoreCase("Protein") || type.equalsIgnoreCase("Cheese"))) {
             return name + " (extra)";
         } else {
             return name;
