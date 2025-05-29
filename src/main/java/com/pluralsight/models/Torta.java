@@ -20,7 +20,7 @@ public class Torta {
     private List<Toppings> sauces = new ArrayList<>();
     private double basePrice;
     private double totalPrice;
-git 
+
     //constructor================================================================================
     //takes bread type, size, toasted
     //initialize properties
@@ -30,7 +30,7 @@ git
         this.isToasted = isToasted;
 
         //set base price based on size
-        if (size.equalsIgnoreCase("chico")) {
+        if(size.equalsIgnoreCase("chico")){
             basePrice = 5.50;
         } else if (size.equalsIgnoreCase("mediano")) {
             basePrice = 7.00;
@@ -47,19 +47,19 @@ git
         proteins.add(topping);
 
         if (size.equalsIgnoreCase("chico")) {
-            if (isExtra) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.50;
             } else {
                 totalPrice = totalPrice + 1.00;
             }
         } else if (size.equalsIgnoreCase("mediano")) {
-            if (isExtra) {
+            if(isExtra){
                 totalPrice = totalPrice + 1.00;
             } else {
                 totalPrice = totalPrice + 2.00;
             }
         } else if (size.equalsIgnoreCase("grande")) {
-            if (isExtra) {
+            if (isExtra){
                 totalPrice = totalPrice + 1.50;
             } else {
                 totalPrice = totalPrice + 3.00;
@@ -73,19 +73,19 @@ git
         cheeses.add(topping);
 
         if (size.equalsIgnoreCase("chico")) {
-            if (isExtra) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.30;
             } else {
                 totalPrice = totalPrice + 0.75;
             }
         } else if (size.equalsIgnoreCase("mediano")) {
-            if (isExtra) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.60;
             } else {
                 totalPrice = totalPrice + 1.50;
             }
         } else if (size.equalsIgnoreCase("grande")) {
-            if (isExtra) {
+            if (isExtra){
                 totalPrice = totalPrice + 0.90;
             } else {
                 totalPrice = totalPrice + 2.25;
@@ -117,16 +117,16 @@ git
         summary = summary + "Size: " + size + "\n";
         summary = summary + "Bread: " + breadType + "\n";
 
-        if (isToasted) {
+        if(isToasted){
             summary = summary + "Toasted: Yes\n";
-        } else {
+        } else{
             summary = summary + "Toasted: No\n";
         }
 
         summary = summary + "Proteins: ";
-        for (Toppings t : proteins) {
+        for(Toppings t : proteins) {
             summary = summary + t.getName();
-            if (t.isExtra()) {
+            if(t.isExtra()) {
                 summary = summary + " (extra)";
             }
             summary = summary + ", ";
@@ -134,9 +134,9 @@ git
         summary = summary + "\n";
 
         summary = summary + "Cheeses: ";
-        for (Toppings t : cheeses) {
+        for(Toppings t : cheeses) {
             summary = summary + t.getName();
-            if (t.isExtra()) {
+            if(t.isExtra()) {
                 summary = summary + " (extra)";
             }
             summary = summary + ", ";
@@ -155,7 +155,7 @@ git
         }
         summary = summary + "\n";
 
-        summary = summary + "Torta Price: $" + String.format("%.2f", totalPrice);
+        summary =  summary + "Torta Price: $" + String.format("%.2f", totalPrice);
 
         return summary;
     }
