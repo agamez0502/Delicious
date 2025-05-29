@@ -7,7 +7,7 @@ public class Order {
 
     //properties=================================================================================
     //create List for order items (sandwiches, drinks, and chips)
-    private List<Torta> tortas  = new ArrayList<>();
+    private List<Torta> tortas = new ArrayList<>();
     private List<Drink> drinks = new ArrayList<>();
     private List<Chips> chips = new ArrayList<>();
 
@@ -23,52 +23,52 @@ public class Order {
 
     //methods====================================================================================
     //addSandwich method that adds sandwich to list
-    public void addTorta(Torta torta){
+    public void addTorta(Torta torta) {
         tortas.add(torta);
     }
 
     //addDrink method that adds drink to list
-    public void addDrink(Drink drink){
+    public void addDrink(Drink drink) {
         drinks.add(drink);
     }
 
     // addChips method that adds chips to list
-    public void addChips(Chips chip){
+    public void addChips(Chips chip) {
         chips.add(chip);
     }
 
     // getTotal method that returns total price of order
-    public double getTotal(){
+    public double getTotal() {
         double total = 0;
 
-        for(Torta torta : tortas){
+        for (Torta torta : tortas) {
             total = total + torta.getPrice();
         }
-        for(Drink drink : drinks){
+        for (Drink drink : drinks) {
             total = total + drink.getPrice();
         }
-        for(Chips chip : chips){
+        for (Chips chip : chips) {
             total = total + chip.getPrice();
         }
         return total;
     }
 
     // getOrderSummary method that returns formatted string of all items and total
-    public getOrderSummary(){
+    public getOrderSummary() {
         String summary = "";
 
         summary = summary + "Tortas:\n";
-        for(Torta torta : tortas){
+        for (Torta torta : tortas) {
             summary = summary + torta.getSummary() + "\n";
         }
 
         summary = summary + "Drinks:\n";
-        for(Drink drink : drinks){
+        for (Drink drink : drinks) {
             summary = summary + drink.toString() + "\n";
         }
 
         summary = summary + "Chips:\n";
-        for(Chips chip : chips){
+        for (Chips chip : chips) {
             summary = summary + chip.toString() + "\n";
 
         }
