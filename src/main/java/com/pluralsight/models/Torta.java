@@ -114,16 +114,16 @@ public class Torta {
     public String getSummary() {
         String summary = "";
 
-        summary = summary + "Size: " + size + "\n";
-        summary = summary + "Bread: " + breadType + "\n";
+        summary = summary + "\uD83E\uDD6A Size: " + size + "\n";
+        summary = summary + "\uD83C\uDF5E Bread: " + breadType + "\n";
 
         if (isToasted) {
-            summary = summary + "Toasted: Yes\n";
+            summary = summary + "\uD83D\uDD25 Toasted: Yes ✅ \n";
         } else {
-            summary = summary + "Toasted: No\n";
+            summary = summary + "\uD83D\uDD25 Toasted: No ❌ \n";
         }
 
-        summary = summary + "Proteins: ";
+        summary = summary + "\uD83C\uDF56 Proteins: ";
         for (Toppings t : proteins) {
             summary = summary + t.getName();
             if (t.isExtra()) {
@@ -133,7 +133,7 @@ public class Torta {
         }
         summary = summary + "\n";
 
-        summary = summary + "Cheeses: ";
+        summary = summary + "\uD83E\uDDC0 Cheeses: ";
         for (Toppings t : cheeses) {
             summary = summary + t.getName();
             if (t.isExtra()) {
@@ -143,19 +143,19 @@ public class Torta {
         }
         summary = summary + "\n";
 
-        summary += "Veggies: ";
+        summary += "\uD83E\uDD6C Veggies: ";
         for (Toppings t : veggies) {
             summary = summary + t.getName() + ", ";
         }
         summary = summary + "\n";
 
-        summary += "Sauces: ";
+        summary += "\uD83C\uDF36\uFE0F Sauces: ";
         for (Toppings t : sauces) {
             summary = summary + t.getName() + ", ";
         }
         summary = summary + "\n";
 
-        summary = summary + "Torta Price: $" + String.format("%.2f", totalPrice);
+        summary = summary + "\uD83D\uDCB2 Torta Price: $" + String.format("%.2f", totalPrice);
 
         return summary;
     }

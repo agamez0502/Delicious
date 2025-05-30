@@ -54,25 +54,30 @@ public class Order {
     }
 
     // getOrderSummary method that returns formatted string of all items and total
-    public getOrderSummary() {
+    public String getOrderSummary() {
         String summary = "";
 
-        summary = summary + "Tortas:\n";
+        summary = summary + "\uD83E\uDD6A Tortas: \n";
+        summary = summary + "═════════════════════════════════\n";
         for (Torta torta : tortas) {
-            summary = summary + torta.getSummary() + "\n";
+            summary = summary + "- " + torta.getSummary() + "\n";
         }
 
-        summary = summary + "Drinks:\n";
+        summary = summary + "\uD83E\uDD64 Drinks: \n";
+        summary = summary + "═════════════════════════════════\n";
         for (Drink drink : drinks) {
-            summary = summary + drink.toString() + "\n";
+            summary = summary + "- " + drink.toString() + "\n";
         }
 
-        summary = summary + "Chips:\n";
+        summary = summary + "\uD83C\uDF5F Chips: \n";
+        summary = summary + "═════════════════════════════════\n";
         for (Chips chip : chips) {
-            summary = summary + chip.toString() + "\n";
+            summary = summary + "- " + chip.toString() + "\n";
 
         }
-        summary = summary + String.format("Total: $%.2f\n", getTotal());
+        summary = summary + "\uD83D\uDCB2 Total: $" + String.format("%.2f", getTotal()) + "\n";
+        summary = summary + "═════════════════════════════════\n";
+
         return summary;
     }
 
