@@ -30,11 +30,11 @@ public class Torta {
         this.isToasted = isToasted;
 
         //set base price based on size
-        if (size.equalsIgnoreCase("Chico")) {
+        if(size.equalsIgnoreCase("chico")){
             basePrice = 5.50;
-        } else if (size.equalsIgnoreCase("Mediano")) {
+        } else if (size.equalsIgnoreCase("mediano")) {
             basePrice = 7.00;
-        } else if (size.equalsIgnoreCase("Grande")) {
+        } else if (size.equalsIgnoreCase("grande")) {
             basePrice = 8.50;
         }
         totalPrice = basePrice;
@@ -43,23 +43,23 @@ public class Torta {
     //methods====================================================================================
     //addProtein method that adds meat(s), what is the price based on size and whether it's extra?
     public void addProtein(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "Protein", isExtra);
+        Toppings topping = new Toppings(name, "protein", isExtra);
         proteins.add(topping);
 
-        if (size.equalsIgnoreCase("Chico")) {
-            if (isExtra) {
+        if (size.equalsIgnoreCase("chico")) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.50;
             } else {
                 totalPrice = totalPrice + 1.00;
             }
-        } else if (size.equalsIgnoreCase("Mediano")) {
-            if (isExtra) {
+        } else if (size.equalsIgnoreCase("mediano")) {
+            if(isExtra){
                 totalPrice = totalPrice + 1.00;
             } else {
                 totalPrice = totalPrice + 2.00;
             }
-        } else if (size.equalsIgnoreCase("Grande")) {
-            if (isExtra) {
+        } else if (size.equalsIgnoreCase("grande")) {
+            if (isExtra){
                 totalPrice = totalPrice + 1.50;
             } else {
                 totalPrice = totalPrice + 3.00;
@@ -69,23 +69,23 @@ public class Torta {
 
     //addCheese method that adds cheese(s) and price depending on size and whether it's extra
     public void addCheese(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "Cheese", isExtra);
+        Toppings topping = new Toppings(name, "cheese", isExtra);
         cheeses.add(topping);
 
-        if (size.equalsIgnoreCase("Chico")) {
-            if (isExtra) {
+        if (size.equalsIgnoreCase("chico")) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.30;
             } else {
                 totalPrice = totalPrice + 0.75;
             }
-        } else if (size.equalsIgnoreCase("Mediano")) {
-            if (isExtra) {
+        } else if (size.equalsIgnoreCase("mediano")) {
+            if(isExtra){
                 totalPrice = totalPrice + 0.60;
             } else {
                 totalPrice = totalPrice + 1.50;
             }
-        } else if (size.equalsIgnoreCase("Grande")) {
-            if (isExtra) {
+        } else if (size.equalsIgnoreCase("grande")) {
+            if (isExtra){
                 totalPrice = totalPrice + 0.90;
             } else {
                 totalPrice = totalPrice + 2.25;
@@ -95,13 +95,13 @@ public class Torta {
 
     //addVeggies method that adds veggie(s) at no charge
     public void addVeggie(String name) {
-        Toppings topping = new Toppings(name, "Veggie", false);
+        Toppings topping = new Toppings(name, "veggie", false);
         veggies.add(topping);
     }
 
     //addSauce method that adds sauce(s) at no charge
     public void addSauce(String name) {
-        Toppings topping = new Toppings(name, "Sauce", false);
+        Toppings topping = new Toppings(name, "sauce", false);
         sauces.add(topping);
     }
 
@@ -114,48 +114,48 @@ public class Torta {
     public String getSummary() {
         String summary = "";
 
-        summary = summary + "\uD83E\uDD6A Size: " + size + "\n";
-        summary = summary + "\uD83C\uDF5E Bread: " + breadType + "\n";
+        summary = summary + "Size: " + size + "\n";
+        summary = summary + "Bread: " + breadType + "\n";
 
-        if (isToasted) {
-            summary = summary + "\uD83D\uDD25 Toasted: Yes ✅ \n";
-        } else {
-            summary = summary + "\uD83D\uDD25 Toasted: No ❌ \n";
+        if(isToasted){
+            summary = summary + "Toasted: Yes\n";
+        } else{
+            summary = summary + "Toasted: No\n";
         }
 
-        summary = summary + "\uD83C\uDF56 Proteins: ";
-        for (Toppings t : proteins) {
+        summary = summary + "Proteins: ";
+        for(Toppings t : proteins) {
             summary = summary + t.getName();
-            if (t.isExtra()) {
+            if(t.isExtra()) {
                 summary = summary + " (extra)";
             }
             summary = summary + ", ";
         }
         summary = summary + "\n";
 
-        summary = summary + "\uD83E\uDDC0 Cheeses: ";
-        for (Toppings t : cheeses) {
+        summary = summary + "Cheeses: ";
+        for(Toppings t : cheeses) {
             summary = summary + t.getName();
-            if (t.isExtra()) {
+            if(t.isExtra()) {
                 summary = summary + " (extra)";
             }
             summary = summary + ", ";
         }
         summary = summary + "\n";
 
-        summary += "\uD83E\uDD6C Veggies: ";
+        summary += "Veggies: ";
         for (Toppings t : veggies) {
             summary = summary + t.getName() + ", ";
         }
         summary = summary + "\n";
 
-        summary += "\uD83C\uDF36\uFE0F Sauces: ";
+        summary += "Sauces: ";
         for (Toppings t : sauces) {
             summary = summary + t.getName() + ", ";
         }
         summary = summary + "\n";
 
-        summary = summary + "\uD83D\uDCB2 Torta Price: $" + String.format("%.2f", totalPrice);
+        summary =  summary + "Torta Price: $" + String.format("%.2f", totalPrice);
 
         return summary;
     }
