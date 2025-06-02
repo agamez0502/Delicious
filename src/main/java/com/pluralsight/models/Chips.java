@@ -26,7 +26,7 @@ public class Chips implements OrderItem {
         return "\uD83C\uDF5F Chips: " + flavor + " - $" + String.format("%.2f", price);
     }
 
-    // getters and setters========================================================================
+    //getters and setters========================================================================
     public String getFlavor() {
         return flavor;
     }

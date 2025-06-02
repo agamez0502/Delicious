@@ -2,10 +2,7 @@ package com.pluralsight;
 
 //import com.pluralsight.ui.UserInterface;
 
-import com.pluralsight.models.Chips;
-import com.pluralsight.models.Drink;
-import com.pluralsight.models.Order;
-import com.pluralsight.models.Torta;
+import com.pluralsight.models.*;
 
 public class App {
 
@@ -23,10 +20,12 @@ public class App {
 
         Drink drink = new Drink("Grande", "Horchata");
         Chips chips = new Chips("Chile Limón");
+        Dessert dessert = new Dessert("Flan");
 
         order.addItem(torta);
         order.addItem(drink);
         order.addItem(chips);
+        order.addItem(dessert);
 
         System.out.println(order.getOrderSummary());
     }
