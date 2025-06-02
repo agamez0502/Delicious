@@ -1,109 +1,55 @@
 package com.pluralsight.models;
 
+import com.pluralsight.ui.OrderItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
     //properties=================================================================================
-    //create List for order items (sandwiches, drinks, and chips)
-    private List<Torta> tortas = new ArrayList<>();
-    private List<Drink> drinks = new ArrayList<>();
-    private List<Chips> chips = new ArrayList<>();
-
-    //store total price
+    private List<OrderItem> items = new ArrayList<>();
 
     //constructor================================================================================
-    //initialize the class properties
-    public Order(List<Torta> tortas, List<Drink> drinks, List<Chips> chips) {
-        this.tortas = tortas;
-        this.drinks = drinks;
-        this.chips = chips;
+    public Order(List<OrderItem> items) {
+        this.items = items;
     }
 
     //methods====================================================================================
-    //addSandwich method that adds sandwich to list
-    public void addTorta(Torta torta) {
-        tortas.add(torta);
-    }
-
-    //addDrink method that adds drink to list
-    public void addDrink(Drink drink) {
-        drinks.add(drink);
-    }
-
-    // addChips method that adds chips to list
-    public void addChips(Chips chip) {
-        chips.add(chip);
+    //addItem method that adds item to list
+    public void addItem(OrderItem item){
+        items.add(item);
     }
 
     // getTotal method that returns total price of order
     public double getTotal() {
         double total = 0;
 
-        for (Torta torta : tortas) {
-            total = total + torta.getPrice();
-        }
-        for (Drink drink : drinks) {
-            total = total + drink.getPrice();
-        }
-        for (Chips chip : chips) {
-            total = total + chip.getPrice();
+        for (OrderItem item : items) {
+            total += item.getPrice();
         }
         return total;
     }
 
     // getOrderSummary method that returns formatted string of all items and total
     public String getOrderSummary() {
-        String summary = "";
+        StringBuilder summary = new StringBuilder();
 
-        summary = summary + "\uD83E\uDD6A Tortas: \n";
-        summary = summary + "═════════════════════════════════\n";
-        for (Torta torta : tortas) {
-            summary = summary + "- " + torta.getSummary() + "\n";
+        for (OrderItem item : items) {
+            summary.append("- ").append(item.getSummary()).append("\n");
         }
+        summary.append("═════════════════════════════════\n");
+        summary.append("\uD83D\uDCB0 Total: $").append(String.format("%.2f", getTotal()));
 
-        summary = summary + "\uD83E\uDD64 Drinks: \n";
-        summary = summary + "═════════════════════════════════\n";
-        for (Drink drink : drinks) {
-            summary = summary + "- " + drink.toString() + "\n";
-        }
-
-        summary = summary + "\uD83C\uDF5F Chips: \n";
-        summary = summary + "═════════════════════════════════\n";
-        for (Chips chip : chips) {
-            summary = summary + "- " + chip.toString() + "\n";
-
-        }
-        summary = summary + "\uD83D\uDCB2 Total: $" + String.format("%.2f", getTotal()) + "\n";
-        summary = summary + "═════════════════════════════════\n";
-
-        return summary;
+        return summary.toString();
     }
 
     //getters and setters========================================================================
-    // getSandwiches, getDrinks, getChips- returns the orders items
-    public List<Torta> getTortas() {
-        return tortas;
+    public List<OrderItem> getItems() {
+        return items;
     }
 
-    public void setTortas(List<Torta> tortas) {
-        this.tortas = tortas;
-    }
-
-    public List<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public void setDrinks(List<Drink> drinks) {
-        this.drinks = drinks;
-    }
-
-    public List<Chips> getChips() {
-        return chips;
-    }
-
-    public void setChips(List<Chips> chips) {
-        this.chips = chips;
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 }
