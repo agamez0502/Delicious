@@ -1,0 +1,20 @@
+Torta-Licious Order Receipt 🧾
+═════════════════════════════════
+Date: 2025-06-02 09:29:44
+
+🥪 Size: Mediano
+🍞 Bread: Bolillo (Whole Wheat)
+🔥 Toasted: Yes ✅
+🍖 Proteins: Carne Asada, 
+🧀 Cheeses: Mozzarella Cheese, 
+🥬 Veggies: Refried Beans, Lettuce, Tomato, 
+🌶️ Sauces: Crema Mexicana, 
+---------------------------------
+💲 Torta Price: $10.50
+🥤 Drink: Chico Horchata - $2.00
+🍟 Chips: Sabritones (Chili-Lime) - $1.50
+🍰 Dessert: Choco-Flan - $3.00
+═════════════════════════════════
+💰 Total: $17.00
+
+💖 Gracias for placing your order!

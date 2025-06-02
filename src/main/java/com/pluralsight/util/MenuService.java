@@ -97,7 +97,7 @@ public class MenuService {
             System.out.println("2) \uD83C\uDF57 Pollo Asado (Grilled Chicken)");
             System.out.println("3) \uD83E\uDD69 Carne Asada (Grilled Steak)");
             System.out.println("4) \uD83D\uDC16 Carnitas (Slow-Cooked Pork)");
-            System.out.println("5) \uD83C\uDF5B Milanesa (Breaded Steak or Chicken)");
+            System.out.println("5) \uD83C\uDF5B Milanesa (Breaded Chicken)");
             System.out.println("6) \uD83C\uDF2D Chorizo ");
             System.out.println("7) \uD83D\uDC04 Barbacoa (Slow-Cooked Beef)");
             System.out.println("8) ✅ Done");

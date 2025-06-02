@@ -1,0 +1,20 @@
+Torta-Licious Order Receipt 🧾
+═════════════════════════════════
+Date: 2025-06-02 09:07:36
+
+🥪 Size: Chico
+🍞 Bread: Bolillo (Regular Flour)
+🔥 Toasted: Yes ✅
+🍖 Proteins: Ham, 
+🧀 Cheeses: Queso Fresco, 
+🥬 Veggies: Lettuce, 
+🌶️ Sauces: Crema Mexicana, 
+---------------------------------
+💲 Torta Price: $7.25
+🥤 Drink: Chico Agua de Piña - $2.00
+🍟 Chips: Sabritones (Chili-Lime) - $1.50
+🍰 Dessert: Flan - $3.00
+═════════════════════════════════
+💰 Total: $13.75
+
+💖 Gracias for placing your order!
