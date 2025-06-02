@@ -43,19 +43,19 @@ public class Torta implements OrderItem {
 
         if (size.equalsIgnoreCase("Chico")) {
             if (isExtra) {
-                totalPrice += 0.50;
+                totalPrice += 0.50 + 1.00;
             } else {
                 totalPrice += 1.00;
             }
         } else if (size.equalsIgnoreCase("Mediano")) {
             if (isExtra) {
-                totalPrice += 1.00;
+                totalPrice += 1.00 + 2.00;
             } else {
                 totalPrice += 2.00;
             }
         } else if (size.equalsIgnoreCase("Grande")) {
             if (isExtra) {
-                totalPrice += 1.50;
+                totalPrice += 1.50 + 3.00;
             } else {
                 totalPrice += 3.00;
             }
@@ -69,19 +69,19 @@ public class Torta implements OrderItem {
 
         if (size.equalsIgnoreCase("Chico")) {
             if (isExtra) {
-                totalPrice += 0.30;
+                totalPrice += 0.30 + 0.75;
             } else {
                 totalPrice += 0.75;
             }
         } else if (size.equalsIgnoreCase("Mediano")) {
             if (isExtra) {
-                totalPrice += 0.60;
+                totalPrice += 0.60 + 1.50;
             } else {
                 totalPrice += 1.50;
             }
         } else if (size.equalsIgnoreCase("Grande")) {
             if (isExtra) {
-                totalPrice += 0.90;
+                totalPrice += 0.90 + 2.25;
             } else {
                 totalPrice += 2.25;
             }

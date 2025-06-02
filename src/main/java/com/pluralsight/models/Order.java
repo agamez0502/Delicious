@@ -10,10 +10,10 @@ public class Order {
     //properties=================================================================================
     private List<OrderItem> items = new ArrayList<>();
 
-    //constructor================================================================================
-    public Order(List<OrderItem> items) {
-        this.items = items;
-    }
+//    //constructor================================================================================
+//    public Order(List<OrderItem> items) {
+//        this.items = items;
+//    }
 
     //methods====================================================================================
     //addItem method that adds item to list
@@ -36,7 +36,7 @@ public class Order {
         StringBuilder summary = new StringBuilder();
 
         for (OrderItem item : items) {
-            summary.append("- ").append(item.getSummary()).append("\n");
+            summary.append(" ").append(item.getSummary()).append("\n");
         }
         summary.append("═════════════════════════════════\n");
         summary.append("\uD83D\uDCB0 Total: $").append(String.format("%.2f", getTotal()));
