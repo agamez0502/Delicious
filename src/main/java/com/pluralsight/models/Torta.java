@@ -112,10 +112,10 @@ public class Torta implements OrderItem {
         StringBuilder summary = new StringBuilder();
 
         summary.append("\uD83E\uDD6A Size: ").append(size).append("\n");
-        summary.append(" \uD83C\uDF5E Bread: ").append(breadType).append("\n");
-        summary.append(" \uD83D\uDD25 Toasted: ").append(isToasted ? "Yes ✅" : "No ❌").append("\n");
+        summary.append("\uD83C\uDF5E Bread: ").append(breadType).append("\n");
+        summary.append("\uD83D\uDD25 Toasted: ").append(isToasted ? "Yes ✅" : "No ❌").append("\n");
 
-        summary.append(" 🍖 Proteins: ");
+        summary.append("🍖 Proteins: ");
         for (Toppings t : proteins) {
             summary.append(t.getName());
             if (t.isExtra()) {
@@ -125,7 +125,7 @@ public class Torta implements OrderItem {
         }
         summary.append("\n");
 
-        summary.append(" 🧀 Cheeses: ");
+        summary.append("🧀 Cheeses: ");
         for (Toppings t : cheeses) {
             summary.append(t.getName());
             if (t.isExtra()) {
@@ -135,19 +135,20 @@ public class Torta implements OrderItem {
         }
         summary.append("\n");
 
-        summary.append(" 🥬 Veggies: ");
+        summary.append("🥬 Veggies: ");
         for (Toppings t : veggies) {
             summary.append(t.getName()).append(", ");
         }
         summary.append("\n");
 
-        summary.append(" 🌶️ Sauces: ");
+        summary.append("🌶️ Sauces: ");
         for (Toppings t : sauces) {
             summary.append(t.getName()).append(", ");
         }
         summary.append("\n");
 
-        summary.append(" 💲 Torta Price: $").append(String.format("%.2f", totalPrice));
+        summary.append("---------------------------------");
+        summary.append("\n💲 Torta Price: $").append(String.format("%.2f", totalPrice));
 
         return summary.toString();
     }

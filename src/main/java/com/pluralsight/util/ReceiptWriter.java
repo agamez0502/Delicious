@@ -11,12 +11,12 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
 
+    private static final File folder = new File("src/main/resources/receipts");
+
     public static void saveReceipt(Order order) {
 
-        File folder = new File("src/main/resources/receipts");
-
         //generate filename using current date/time (yyyyMMdd-hhmmss.txt)
-        String fileName = generateTimestamp() + ".txt";
+        String fileName = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss")) + ".txt";
         File receiptFile = new File(folder, fileName);
 
         try {
@@ -35,24 +35,16 @@ public class ReceiptWriter {
             //write total cost
             //loop through all order items and write the items to the to receipt
             buffWriter.write(order.getOrderSummary());
+            buffWriter.newLine();
+            buffWriter.write("💖 Gracias for placing your order!");
 
             //close BufferedWriter
             buffWriter.close();
-            System.out.println("Receipt saved to: " + receiptFile.getPath() + " ✅");
+            System.out.println("✅ Receipt saved to: " + receiptFile.getPath());
 
             //handle exception with error message
         } catch (Exception e) {
-            System.out.println("Error saving receipt: " + e.getMessage() + " ❌");
+            System.out.println("❌ Error saving receipt: " + e.getMessage());
         }
-
-    }
-
-    private static String generateTimestamp() {
-        //Create timestamp string using a formatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-
-        //return that format
-        return now.format(formatter);
     }
 }
