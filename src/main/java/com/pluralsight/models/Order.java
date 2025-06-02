@@ -17,11 +17,11 @@ public class Order {
 
     //methods====================================================================================
     //addItem method that adds item to list
-    public void addItem(OrderItem item){
+    public void addItem(OrderItem item) {
         items.add(item);
     }
 
-    // getTotal method that returns total price of order
+    //getTotal method that returns total price of order
     public double getTotal() {
         double total = 0;
 
@@ -31,7 +31,7 @@ public class Order {
         return total;
     }
 
-    // getOrderSummary method that returns formatted string of all items and total
+    //getOrderSummary method that returns formatted string of all items and total
     public String getOrderSummary() {
         StringBuilder summary = new StringBuilder();
 

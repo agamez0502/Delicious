@@ -1,6 +1,9 @@
 package com.pluralsight.models;
 
-public class Drink {
+import com.pluralsight.ui.OrderItem;
+
+public class Drink implements OrderItem {
+
     //properties=================================================================================
     private String size;
     private String flavor;
@@ -11,19 +14,48 @@ public class Drink {
         this.size = size;
         this.flavor = flavor;
 
-        if (size.equalsIgnoreCase("Chico")) {
-            price = 2.00;
-        } else if (size.equalsIgnoreCase("Mediano")) {
-            price = 2.50;
-        } else if (size.equalsIgnoreCase("Grande")) {
-            price = 3.00;
+//        System.out.println("1) Chico");
+//        System.out.println("2) Mediano");
+//        System.out.println("3) Grande");
+//
+//        switch (size) {
+//            case "1":
+//                this.price = 2.00;
+//            case "2":
+//                this.price = 2.50;
+//            case "3":
+//                this.price = 3.00;
+//        }
+
+        //set base price based on size
+        switch (size.equalsIgnoreCase()) {
+            case "Chico":
+                this.price = 2.00;
+                break;
+            case "Mediano":
+                this.price = 2.50;
+                break;
+            case "Grande":
+                this.price = 3.00;
+                break;
+            default:
+                this.price = 2.00; //most common size is medium
+                break;
         }
+
     }
 
     //methods====================================================================================
+    //implement from OrderItem - getPrice method that returns current total price
     @Override
-    public String toString() {
-        return size + " " + flavor + " - $" + String.format("%.2f", price);
+    public double getPrice() {
+        return price;
+    }
+
+    //implement from OrderItem - getSummary method that returns a string with all drink details and price
+    @Override
+    public String getSummary() {
+        return "🥤 Drink: " + size + " " + flavor + " - $" + String.format("%.2f", price);
     }
 
     //getters and setters========================================================================
@@ -41,10 +73,6 @@ public class Drink {
 
     public void setFlavor(String flavor) {
         this.flavor = flavor;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public void setPrice(double price) {
