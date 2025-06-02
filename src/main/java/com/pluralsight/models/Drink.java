@@ -5,33 +5,14 @@ import com.pluralsight.ui.OrderItem;
 public class Drink implements OrderItem {
 
     //properties=================================================================================
-    private String size;
     private String flavor;
+    private String size;
     private double price;
 
     //constructor================================================================================
-    public Drink(String size, String flavor) {
-        this.size = size;
+    public Drink(String flavor, String size) {
         this.flavor = flavor;
-
-//        //set base price based on size
-//        System.out.println("1) Chico");
-//        System.out.println("2) Mediano");
-//        System.out.println("3) Grande");
-//
-//        switch (size) {
-//            case "1":
-//                this.price = 2.00;
-//                break;
-//            case "2":
-//                this.price = 2.50;
-//                break;
-//            case "3":
-//                this.price = 3.00;
-//                break;
-//            default:
-//                System.out.println("Invalid selection ❌");
-//        }
+        this.size = size;
 
         //set base price based on size
         switch (size) {
@@ -44,8 +25,9 @@ public class Drink implements OrderItem {
             case "Grande":
                 this.price = 3.00;
                 break;
+            default:
+                System.out.println("Invalid selection ❌");
         }
-
     }
 
     //methods====================================================================================

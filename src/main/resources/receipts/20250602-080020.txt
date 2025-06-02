@@ -1,0 +1,21 @@
+Torta-Licious Order Receipt 🧾
+═════════════════════════════════
+Date: 2025-06-02 08:00:20
+
+🥪 Size: Chico
+🍞 Bread: Bolillo (Regular Flour)
+🔥 Toasted: Yes ✅
+🍖 Proteins: Ham, 
+🧀 Cheeses: Queso Oaxaca, 
+🥬 Veggies: Lettuce, 
+🌶️ Sauces: Crema Mexicana, 
+---------------------------------
+💲 Torta Price: $7.25
+🥤 Drink: Mexican Coca-Cola Chico - $0.00
+🥤 Drink: Jarrito (Strawberry) Chico - $0.00
+🍟 Chips: Takis - $1.50
+🍰 Dessert: Flan - $3.00
+═════════════════════════════════
+💰 Total: $11.75
+
+💖 Gracias for placing your order!

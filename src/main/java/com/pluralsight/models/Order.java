@@ -44,6 +44,19 @@ public class Order {
         return summary.toString();
     }
 
+    @Override
+    public String toString(){
+        StringBuilder string = new StringBuilder();
+
+        string.append("Your order includes:\n");
+        for (OrderItem item : items) {
+            string.append("").append(item.getSummary()).append("\n");
+        }
+
+        string.append(String.format("\uD83D\uDCB2 Total Price: $%.2f", getTotal()));
+        return string.toString();
+    }
+
     //getters and setters========================================================================
     public List<OrderItem> getItems() {
         return items;

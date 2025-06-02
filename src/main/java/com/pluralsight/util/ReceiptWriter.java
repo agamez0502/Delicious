@@ -36,15 +36,15 @@ public class ReceiptWriter {
             //loop through all order items and write the items to the to receipt
             buffWriter.write(order.getOrderSummary());
             buffWriter.newLine();
-            buffWriter.write("💖 Gracias for placing your order!");
+            buffWriter.write("\n💖 Gracias for placing your order!");
 
             //close BufferedWriter
             buffWriter.close();
-            System.out.println("✅ Receipt saved to: " + receiptFile.getPath());
+            //System.out.println("\n✅ Receipt saved to: " + receiptFile.getPath() + "\n");
 
             //handle exception with error message
         } catch (Exception e) {
-            System.out.println("❌ Error saving receipt: " + e.getMessage());
+            System.out.println("\n❌ Error saving receipt: " + e.getMessage() + "\n");
         }
     }
 }

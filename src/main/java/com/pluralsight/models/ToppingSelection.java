@@ -14,7 +14,7 @@ public class ToppingSelection {
 
     //methods====================================================================================
     @Override
-    public String toString(){
+    public String toString() {
         return name + (isExtra ? " (extra)" : "");
     }
 

@@ -20,6 +20,7 @@ public class UserInterface {
         while (appRunning) {
 
             //display home screen options
+            printSlowly();
             int choice = menuService.showHomeScreen();
 
             //switch statement based on choice
@@ -44,69 +45,110 @@ public class UserInterface {
 
         //create a new order
         Order order = new Order();
+        boolean ordering = true;
 
-        //create a torta
-        int breadChoice = menuService.promptForBreadType();
-        int sizeChoice = menuService.promptForSize();
-        boolean toastedChoice = menuService.promptForToasted() == 1;
+        while (ordering) {
+            int choice = menuService.showOrderScreen();
 
-        Torta torta = new Torta(menuService.sizeByChoice(sizeChoice), menuService.breadByChoice(breadChoice), toastedChoice);
+            switch (choice) {
+                case 1 -> {
 
-        //add toppings
+                    //add a torta
+                    int breadChoice = menuService.promptForBreadType();
+                    int sizeChoice = menuService.promptForSize();
+                    boolean toastedChoice = menuService.promptForToasted() == 1;
 
-        //proteins
-        menuService.promptForProteins()
-                .forEach(s -> {
-                    boolean extra = s.endsWith(" (extra)");
-                    String name   = extra ? s.substring(0, s.length() - " (extra)".length()) : s;
-                    addProtein(s.name, extra);
-                });
+                    Torta torta = new Torta(menuService.sizeByChoice(sizeChoice), menuService.breadByChoice(breadChoice), toastedChoice);
 
-        //cheeses
-        menuService.promptForCheeses()
-                .forEach(c -> addCheese(c.getName(), c.isExtra()));
+                    //add toppings
 
-        //veggies
-        menuService.promptForVeggies()
-                .forEach(v -> torta.addVeggie(v));
+                    //proteins
+                    menuService.promptForProteins()
+                            .forEach(torta::addProtein);
 
-        //sauces
-        menuService.promptForSauces()
-                .forEach(s -> torta.addSauce(s));
+                    //cheeses
+                    menuService.promptForCheeses()
+                            .forEach(torta::addCheese);
 
-        order.addItem(torta);
+                    //veggies
+                    menuService.promptForVeggies()
+                            .forEach(torta::addVeggie);
 
-        //create a drink
-        int drinkChoice = menuService.promptForDrink();
+                    //sauces
+                    menuService.promptForSauces()
+                            .forEach(torta::addSauce);
 
-        if (drinkChoice != 0) {
-            order.addItem(new Drink(menuService.drinkByChoice(drinkChoice), menuService.sizeByChoice(sizeChoice)));
+                    order.addItem(torta);
+                }
+
+                case 2 -> {
+
+                    //add a drink
+                    int drinkChoice = menuService.promptForDrink();
+                    String drinkName = menuService.drinkByChoice(drinkChoice);
+                    int sizeChoice = menuService.promptForDrinkSize();
+
+                    if (drinkChoice != 0 && drinkName != null) {
+                            order.addItem(new Drink(drinkName, menuService.sizeByChoice(sizeChoice)));
+                    }
+                }
+
+                case 3 -> {
+
+                    //add chips
+                    int chipChoice = menuService.promptForChips();
+                    String chipName = menuService.chipsByChoice(chipChoice);
+
+                    if (chipName != null) {
+                        order.addItem(new Chips(chipName));
+                    }
+                }
+
+                case 4 -> {
+
+                    //add a dessert
+                    int dessertChoice = menuService.promptForDessert();
+                    String dessertName = menuService.dessertByChoice(dessertChoice);
+
+                    if (dessertName != null) {
+                        order.addItem(new Dessert(dessertName));
+                    }
+                }
+
+                case 5 -> {
+
+                    //checkout
+                    menuService.displayCheckoutSummary(order);
+
+                    if (menuService.confirmCheckout() == 1) {
+                        System.out.println("\n✅ Order confirmed!\n");
+                        ReceiptWriter.saveReceipt(order);
+                    } else {
+                        menuService.displayOrderCancelled();
+                    }
+                    ordering = false;
+                }
+
+                case 0 -> {
+
+                    //cancel order
+                    System.out.println("\n❌ Order cancelled.\n");
+                    ordering = false;
+                }
+
+                default -> System.out.println("⚠️ Invalid selection. Try again.");
+            }
         }
+    }
 
-        //create chips
-        int chipChoice = menuService.promptForChips();
-        String chipName = menuService.chipsByChoice(chipChoice);
+    //method for printing things out slowly
+    public static void printSlowly() {
 
-        if (chipName != null) {
-            order.addItem(new Chips(chipName));
-        }
-
-        //create a dessert
-        int dessertChoice = menuService.promptForDessert();
-        String dessertName = menuService.dessertByChoice(dessertChoice);
-
-        if (dessertName != null) {
-            order.addItem(new Dessert(dessertName));
-        }
-
-        //summary - confirm order
-        menuService.displayCheckoutSummary(order);
-
-        if (menuService.confirmCheckout() == 1) {
-            System.out.println("✅ Order confirmed!");
-            ReceiptWriter.saveReceipt(order);
-        } else {
-            menuService.displayOrderCancelled();
+        //helps it print out the next thing slowly
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

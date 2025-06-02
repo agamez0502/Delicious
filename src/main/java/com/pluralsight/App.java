@@ -6,7 +6,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        //lets bring this baby to life
+        //let's bring this baby to life
         new UserInterface().run();
     }
 }

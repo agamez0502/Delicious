@@ -11,10 +11,10 @@ public class Torta implements OrderItem {
     private String size;
     private String breadType;
     private boolean isToasted;
-    private List<Toppings> proteins = new ArrayList<>();
-    private List<Toppings> cheeses = new ArrayList<>();
-    private List<Toppings> veggies = new ArrayList<>();
-    private List<Toppings> sauces = new ArrayList<>();
+    private List<ToppingSelection> proteins = new ArrayList<>();
+    private List<ToppingSelection> cheeses = new ArrayList<>();
+    private List<ToppingSelection> veggies = new ArrayList<>();
+    private List<ToppingSelection> sauces = new ArrayList<>();
     private double basePrice;
     private double totalPrice;
 
@@ -37,24 +37,23 @@ public class Torta implements OrderItem {
 
     //methods====================================================================================
     //addProtein method that adds meat(s), what is the price based on size and whether it's extra?
-    public void addProtein(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "Protein", isExtra);
-        proteins.add(topping);
+    public void addProtein(ToppingSelection selection) {
+        proteins.add(selection);
 
         if (size.equalsIgnoreCase("Chico")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 0.50 + 1.00;
             } else {
                 totalPrice += 1.00;
             }
         } else if (size.equalsIgnoreCase("Mediano")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 1.00 + 2.00;
             } else {
                 totalPrice += 2.00;
             }
         } else if (size.equalsIgnoreCase("Grande")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 1.50 + 3.00;
             } else {
                 totalPrice += 3.00;
@@ -63,24 +62,23 @@ public class Torta implements OrderItem {
     }
 
     //addCheese method that adds cheese(s) and price depending on size and whether it's extra
-    public void addCheese(String name, boolean isExtra) {
-        Toppings topping = new Toppings(name, "Cheese", isExtra);
-        cheeses.add(topping);
+    public void addCheese(ToppingSelection selection) {
+        cheeses.add(selection);
 
         if (size.equalsIgnoreCase("Chico")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 0.30 + 0.75;
             } else {
                 totalPrice += 0.75;
             }
         } else if (size.equalsIgnoreCase("Mediano")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 0.60 + 1.50;
             } else {
                 totalPrice += 1.50;
             }
         } else if (size.equalsIgnoreCase("Grande")) {
-            if (isExtra) {
+            if (selection.isExtra()) {
                 totalPrice += 0.90 + 2.25;
             } else {
                 totalPrice += 2.25;
@@ -90,14 +88,12 @@ public class Torta implements OrderItem {
 
     //addVeggies method that adds veggie(s) at no charge
     public void addVeggie(String name) {
-        Toppings topping = new Toppings(name, "Veggie", false);
-        veggies.add(topping);
+        veggies.add(new ToppingSelection(name, false));
     }
 
     //addSauce method that adds sauce(s) at no charge
     public void addSauce(String name) {
-        Toppings topping = new Toppings(name, "Sauce", false);
-        sauces.add(topping);
+        sauces.add(new ToppingSelection(name, false));
     }
 
     //implement from OrderItem - getPrice method that returns current total price
@@ -116,7 +112,7 @@ public class Torta implements OrderItem {
         summary.append("\uD83D\uDD25 Toasted: ").append(isToasted ? "Yes ✅" : "No ❌").append("\n");
 
         summary.append("🍖 Proteins: ");
-        for (Toppings t : proteins) {
+        for (ToppingSelection t : proteins) {
             summary.append(t.getName());
             if (t.isExtra()) {
                 summary.append(" (extra)");
@@ -126,7 +122,7 @@ public class Torta implements OrderItem {
         summary.append("\n");
 
         summary.append("🧀 Cheeses: ");
-        for (Toppings t : cheeses) {
+        for (ToppingSelection t : cheeses) {
             summary.append(t.getName());
             if (t.isExtra()) {
                 summary.append(" (extra)");
@@ -136,13 +132,13 @@ public class Torta implements OrderItem {
         summary.append("\n");
 
         summary.append("🥬 Veggies: ");
-        for (Toppings t : veggies) {
+        for (ToppingSelection t : veggies) {
             summary.append(t.getName()).append(", ");
         }
         summary.append("\n");
 
         summary.append("🌶️ Sauces: ");
-        for (Toppings t : sauces) {
+        for (ToppingSelection t : sauces) {
             summary.append(t.getName()).append(", ");
         }
         summary.append("\n");
@@ -178,35 +174,35 @@ public class Torta implements OrderItem {
         isToasted = toasted;
     }
 
-    public List<Toppings> getProteins() {
+    public List<ToppingSelection> getProteins() {
         return proteins;
     }
 
-    public void setProteins(List<Toppings> proteins) {
+    public void setProteins(List<ToppingSelection> proteins) {
         this.proteins = proteins;
     }
 
-    public List<Toppings> getCheeses() {
+    public List<ToppingSelection> getCheeses() {
         return cheeses;
     }
 
-    public void setCheeses(List<Toppings> cheeses) {
+    public void setCheeses(List<ToppingSelection> cheeses) {
         this.cheeses = cheeses;
     }
 
-    public List<Toppings> getVeggies() {
+    public List<ToppingSelection> getVeggies() {
         return veggies;
     }
 
-    public void setVeggies(List<Toppings> veggies) {
+    public void setVeggies(List<ToppingSelection> veggies) {
         this.veggies = veggies;
     }
 
-    public List<Toppings> getSauces() {
+    public List<ToppingSelection> getSauces() {
         return sauces;
     }
 
-    public void setSauces(List<Toppings> sauces) {
+    public void setSauces(List<ToppingSelection> sauces) {
         this.sauces = sauces;
     }
 
