@@ -14,6 +14,7 @@ public class Drink implements OrderItem {
         this.size = size;
         this.flavor = flavor;
 
+        //set base price based on size
         System.out.println("1) Chico");
         System.out.println("2) Mediano");
         System.out.println("3) Grande");
