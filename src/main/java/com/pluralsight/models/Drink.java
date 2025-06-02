@@ -14,34 +14,39 @@ public class Drink implements OrderItem {
         this.size = size;
         this.flavor = flavor;
 
-//        System.out.println("1) Chico");
-//        System.out.println("2) Mediano");
-//        System.out.println("3) Grande");
-//
-//        switch (size) {
-//            case "1":
-//                this.price = 2.00;
-//            case "2":
-//                this.price = 2.50;
-//            case "3":
-//                this.price = 3.00;
-//        }
+        System.out.println("1) Chico");
+        System.out.println("2) Mediano");
+        System.out.println("3) Grande");
 
-        //set base price based on size
-        switch (size.equalsIgnoreCase()) {
-            case "Chico":
+        switch (size) {
+            case "1":
                 this.price = 2.00;
                 break;
-            case "Mediano":
+            case "2":
                 this.price = 2.50;
                 break;
-            case "Grande":
+            case "3":
                 this.price = 3.00;
                 break;
             default:
-                this.price = 2.00; //most common size is medium
-                break;
+                System.out.println("Invalid selection ❌");
         }
+
+//        //set base price based on size
+//        switch (size.equalsIgnoreCase(size)) {
+//            case "Chico":
+//                this.price = 2.00;
+//                break;
+//            case "Mediano":
+//                this.price = 2.50;
+//                break;
+//            case "Grande":
+//                this.price = 3.00;
+//                break;
+//            default:
+//                this.price = 2.00; //most common size is medium
+//                break;
+//        }
 
     }
 
