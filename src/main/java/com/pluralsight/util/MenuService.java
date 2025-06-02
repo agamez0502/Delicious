@@ -24,13 +24,19 @@ public class MenuService {
         }
     }
 
-    //showHomeScreen
-    public int showHomeScreen() {
+    //displayWelcomeScreen
+    public void displayWelcomeScreen() {
         //welcome message
         System.out.println("╔═══════════════════════════════════════════════════════════╗");
         System.out.println("║  Welcome to Alondra's Mexican Torta-Licious Application!  ║");
         System.out.println("╚═══════════════════════════════════════════════════════════╝");
-        System.out.println("\n=========== \uD83C\uDFE6 Home Screen ===========");
+        System.out.println("\n");
+    }
+
+    //showHomeScreen
+    public int showHomeScreen() {
+        //homescreen menu
+        System.out.println("=========== \uD83C\uDFE6 Home Screen ===========");
         System.out.println("1) New Order");
         System.out.println("0) Exit");
         return readInt("Make a selection: ", 0, 1);
@@ -307,6 +313,7 @@ public class MenuService {
     public int promptForDessert() {
         System.out.println("\n=========== 🍰 Available Desserts ===========");
         System.out.println("1) \uD83C\uDF6E Flan");
+        System.out.println("1) \uD83C\uDF6B\uD83C\uDF6E Choco-Flan");
         System.out.println("2) \uD83C\uDF1F Churro");
         System.out.println("3) \uD83C\uDF70 Tres Leches Cake");
         return readInt("Make a selection: ", 1, 3);
@@ -342,5 +349,56 @@ public class MenuService {
         System.out.println("╔═══════════════════════════════════════════════════════════════════════╗");
         System.out.println("║  Thank you for choosing Alondra's Mexican Torta-Licious Application!  ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════════════╝");
+    }
+
+    //mapping helpers
+    public String breadByChoice(int c) {
+        return switch (c) {
+            case 1 -> "Bolillo (Regular Flour)";
+            case 2 -> "Bolillo (Whole Wheat)";
+            case 3 -> "Telera (Sesame Seed)";
+            case 4 -> "Pan Integral (Whole Grain)";
+            default -> "Bolillo (Regular Flour)";
+        };
+    }
+
+    public String sizeByChoice(int c) {
+        return switch (c) {
+            case 1 -> "Chico";
+            case 2 -> "Mediano";
+            case 3 -> "Grande";
+            default -> "Chico";
+        };
+    }
+
+    public String drinkByChoice(int c) {
+        return switch (c) {
+            case 1 -> "Mexican Coca-Cola";
+            case 2 -> "Jarrito (Strawberry)";
+            case 3 -> "Agua de Piña";
+            case 4 -> "Agua de Jamaica";
+            case 5 -> "Horchata";
+            default -> "Mexican Coca-Cola";
+        };
+    }
+
+    public String chipsByChoice(int c) {
+        return switch (c) {
+            case 1 -> "Takis";
+            case 2 -> "Sabritones (Chili-Lime)";
+            case 3 -> "Doritos";
+            case 4 -> "Ruffles Queso";
+            default -> null;
+        };
+    }
+
+    public String dessertByChoice(int c) {
+        return switch (c) {
+            case 1 -> "Flan";
+            case 2 -> "Choco-Flan";
+            case 3 -> "Churro";
+            case 4 -> "Tres Leches Cake";
+            default -> null;
+        };
     }
 }
