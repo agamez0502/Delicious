@@ -9,6 +9,7 @@ Welcome to Torta-Licious 🥪 A CLI POS application for a Mexican sandwich shop.
 🍰 Indulge in traditional Mexican desserts. 
 
 
+
 This application makes use of OOP concepts such as: 
 
 🧊 Encapsulation 
@@ -16,6 +17,7 @@ This application makes use of OOP concepts such as:
 🧩 Polymorphism 
 
 🧬 Inheritance
+
 
 
 ![Torta](https://github.com/user-attachments/assets/01467e2d-c237-46be-921b-76571532ca9e)
