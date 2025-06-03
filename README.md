@@ -1,4 +1,13 @@
-Welcome to Torta-Licious 🥪 
+Welcome to Torta-Licious 🥪 A CLI POS application for a Mexican sandwich shop. Where customers can: 
+🥪 Build their own torta by selecting bread, size, proteins, cheeses, veggies, and sauces. 
+🥤 Choose from a variety of refreshing Mexican drinks 
+🍟 Add crispy Mexican chips to their order 
+🍰 Indulge in traditional Mexican desserts. 
+
+This application makes use of OOP concepts such as: 
+🧊 Encapsulation 
+🧩 Polymorphism 
+🧬 Inheritance
 
 ![Torta](https://github.com/user-attachments/assets/01467e2d-c237-46be-921b-76571532ca9e)
 
