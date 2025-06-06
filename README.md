@@ -14,7 +14,7 @@ Customers can:
 → Choose bread, size, proteins, cheeses, veggies, and sauces
 
 🥤 **Pick a refreshing Mexican drink**  
-→ Jarritos, Sidral, Sangria, and more!
+→ Jarritos, Coca-Cola, Aguas frescas, and more!
 
 🍟 **Add crispy Mexican chips**  
 → Sabritas, Takis, Doritos, and more!
